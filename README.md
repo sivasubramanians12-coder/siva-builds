@@ -21,7 +21,6 @@ This isn't about chasing trends. It's about applying AI where it actually moves 
 | [`/daily`](./daily) | Raw daily learnings — what I tried, what worked, what didn't |
 | [`/projects`](./projects) | Project logs and build notes |
 | [`/tools`](./tools) | Tools I've set up, configured, and learned from |
-| [`/posts`](./posts) | Polished LinkedIn posts and essays |
 
 ## The philosophy
 
