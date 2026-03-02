@@ -1,0 +1,91 @@
+{
+  "lastUpdated": "2026-03-02",
+  "tagline": "A 3-agent system built to run a business and compound learning daily.",
+  "agents": [
+    {
+      "name": "BarleyBot",
+      "role": "Orchestrator",
+      "emoji": "🐾",
+      "model": "Claude Sonnet 4.6",
+      "bound_to": "Telegram DM",
+      "description": "Main agent. Handles daily ops, memory, coordination, and anything that doesn't need specialist depth. Named after Siva's dog Barley.",
+      "capabilities": ["Memory (3-layer)", "Cron management", "Research coordination", "Site updates", "Voice transcription (Groq Whisper)"]
+    },
+    {
+      "name": "Coffee",
+      "role": "Research Agent",
+      "emoji": "☕",
+      "model": "Claude Sonnet 4.6",
+      "bound_to": "Research Telegram group",
+      "description": "Deep research specialist. Bound to a dedicated Telegram group. Ask anything — web research, comparisons, summaries, market analysis.",
+      "capabilities": ["Web search", "Multi-source synthesis", "Deep research skill", "Group-bound context"]
+    },
+    {
+      "name": "Coder",
+      "role": "Coding Agent",
+      "emoji": "⚙️",
+      "model": "Claude Opus 4.6",
+      "bound_to": "Standalone (spawned on demand)",
+      "description": "Heavy-lifting coding agent. Spawned for complex builds, refactors, and multi-file work. Uses the most capable model available.",
+      "capabilities": ["Full codebase exploration", "Multi-file edits", "Test writing", "Git operations"]
+    }
+  ],
+  "automations": [
+    {
+      "name": "Podcast Digest",
+      "schedule": "8:00 AM IST daily",
+      "description": "Scans 81 podcast feeds, surfaces new episodes, picks the 3 most relevant for the day.",
+      "output": "Telegram message"
+    },
+    {
+      "name": "RSS Digest",
+      "schedule": "8:05 AM IST daily",
+      "description": "Scans 13 RSS feeds across AI, ops, and business. Surfaces new articles since last check.",
+      "output": "Telegram message"
+    },
+    {
+      "name": "Daily Wrap + LinkedIn Drafts",
+      "schedule": "10:30 PM IST daily",
+      "description": "Reads today's memory and GitHub commits. Writes a tech-led log entry to siva-builds. Drafts 2 LinkedIn posts. Triggers Vercel rebuild so this site updates automatically.",
+      "output": "siva-builds commit + Vercel deploy + Telegram summary"
+    },
+    {
+      "name": "Daily OpenClaw Idea",
+      "schedule": "3:30 AM IST daily",
+      "description": "Generates one concrete OpenClaw automation idea based on current projects and context.",
+      "output": "Telegram message"
+    }
+  ],
+  "memory": [
+    {
+      "layer": "Session context",
+      "description": "Active conversation memory. Ephemeral — lives only during the session.",
+      "location": "In-context"
+    },
+    {
+      "layer": "Daily logs",
+      "description": "Raw notes written during and after each session. What was discussed, built, decided.",
+      "location": "memory/YYYY-MM-DD.md"
+    },
+    {
+      "layer": "Long-term memory",
+      "description": "Curated and distilled. Updated during heartbeats. The stuff that matters across weeks and months.",
+      "location": "MEMORY.md"
+    }
+  ],
+  "integrations": [
+    { "name": "Telegram", "use": "Primary interface — DM + research group + future coding group" },
+    { "name": "GitHub", "use": "Read all private repos. Write to siva-builds and siva-proof-of-work." },
+    { "name": "Vercel", "use": "Auto-deploy this site on every siva-builds push via deploy hook." },
+    { "name": "Groq Whisper", "use": "Voice note transcription. whisper-large-v3-turbo. Under 2s." },
+    { "name": "Gemini 2.5 Flash", "use": "Gateway web search provider for sub-agents." },
+    { "name": "Tavily", "use": "Deep web search in main BarleyBot session." }
+  ],
+  "skills": [
+    { "name": "deep-research", "agent": "Coffee", "description": "Multi-source research with structured output. Saves to workspace/research/[topic]/." },
+    { "name": "podcast-digest", "agent": "BarleyBot", "description": "Fetches 81 podcast feeds, filters new episodes, picks the day's best." },
+    { "name": "coding-agent", "agent": "BarleyBot", "description": "Delegates complex builds to Coder via background process." },
+    { "name": "obsidian", "agent": "BarleyBot", "description": "Read and write to Obsidian vaults via obsidian-cli." },
+    { "name": "github", "agent": "BarleyBot", "description": "GitHub operations — issues, PRs, CI, code review via gh CLI." }
+  ]
+}
