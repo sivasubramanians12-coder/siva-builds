@@ -5,29 +5,45 @@
     {
       "name": "BarleyBot",
       "role": "Orchestrator",
-      "emoji": "🐾",
+      "emoji": "\ud83d\udc3e",
       "model": "Claude Sonnet 4.6",
       "bound_to": "Telegram DM",
       "description": "Main agent. Handles daily ops, memory, coordination, and anything that doesn't need specialist depth. Named after Siva's dog Barley.",
-      "capabilities": ["Memory (3-layer)", "Cron management", "Research coordination", "Site updates", "Voice transcription (Groq Whisper)"]
+      "capabilities": [
+        "Memory (3-layer)",
+        "Cron management",
+        "Research coordination",
+        "Site updates",
+        "Voice transcription (Groq Whisper)"
+      ]
     },
     {
       "name": "Coffee",
       "role": "Research Agent",
-      "emoji": "☕",
+      "emoji": "\u2615",
       "model": "Claude Sonnet 4.6",
       "bound_to": "Research Telegram group",
-      "description": "Deep research specialist. Bound to a dedicated Telegram group. Ask anything — web research, comparisons, summaries, market analysis.",
-      "capabilities": ["Web search", "Multi-source synthesis", "Deep research skill", "Group-bound context"]
+      "description": "Deep research specialist. Bound to a dedicated Telegram group. Ask anything \u2014 web research, comparisons, summaries, market analysis.",
+      "capabilities": [
+        "Web search",
+        "Multi-source synthesis",
+        "Deep research skill",
+        "Group-bound context"
+      ]
     },
     {
       "name": "Coder",
       "role": "Coding Agent",
-      "emoji": "⚙️",
+      "emoji": "\u2699\ufe0f",
       "model": "Claude Opus 4.6",
       "bound_to": "Standalone (spawned on demand)",
       "description": "Heavy-lifting coding agent. Spawned for complex builds, refactors, and multi-file work. Uses the most capable model available.",
-      "capabilities": ["Full codebase exploration", "Multi-file edits", "Test writing", "Git operations"]
+      "capabilities": [
+        "Full codebase exploration",
+        "Multi-file edits",
+        "Test writing",
+        "Git operations"
+      ]
     }
   ],
   "automations": [
@@ -59,7 +75,7 @@
   "memory": [
     {
       "layer": "Session context",
-      "description": "Active conversation memory. Ephemeral — lives only during the session.",
+      "description": "Active conversation memory. Ephemeral \u2014 lives only during the session.",
       "location": "In-context"
     },
     {
@@ -74,18 +90,67 @@
     }
   ],
   "integrations": [
-    { "name": "Telegram", "use": "Primary interface — DM + research group + future coding group" },
-    { "name": "GitHub", "use": "Read all private repos. Write to siva-builds and siva-proof-of-work." },
-    { "name": "Vercel", "use": "Auto-deploy this site on every siva-builds push via deploy hook." },
-    { "name": "Groq Whisper", "use": "Voice note transcription. whisper-large-v3-turbo. Under 2s." },
-    { "name": "Gemini 2.5 Flash", "use": "Gateway web search provider for sub-agents." },
-    { "name": "Tavily", "use": "Deep web search in main BarleyBot session." }
+    {
+      "name": "Telegram",
+      "use": "Primary interface \u2014 DM + research group + future coding group"
+    },
+    {
+      "name": "GitHub",
+      "use": "Read all private repos. Write to siva-builds and siva-proof-of-work."
+    },
+    {
+      "name": "Vercel",
+      "use": "Auto-deploy this site on every siva-builds push via deploy hook."
+    },
+    {
+      "name": "Groq Whisper",
+      "use": "Voice note transcription. whisper-large-v3-turbo. Under 2s."
+    },
+    {
+      "name": "Gemini 2.5 Flash",
+      "use": "Gateway web search provider for sub-agents."
+    },
+    {
+      "name": "Tavily",
+      "use": "Deep web search in main BarleyBot session."
+    }
   ],
   "skills": [
-    { "name": "deep-research", "agent": "Coffee", "description": "Multi-source research with structured output. Saves to workspace/research/[topic]/." },
-    { "name": "podcast-digest", "agent": "BarleyBot", "description": "Fetches 81 podcast feeds, filters new episodes, picks the day's best." },
-    { "name": "coding-agent", "agent": "BarleyBot", "description": "Delegates complex builds to Coder via background process." },
-    { "name": "obsidian", "agent": "BarleyBot", "description": "Read and write to Obsidian vaults via obsidian-cli." },
-    { "name": "github", "agent": "BarleyBot", "description": "GitHub operations — issues, PRs, CI, code review via gh CLI." }
+    {
+      "name": "deep-research",
+      "agent": "Coffee",
+      "description": "Multi-source research with structured output. Saves to workspace/research/[topic]/."
+    },
+    {
+      "name": "podcast-digest",
+      "agent": "BarleyBot",
+      "description": "Fetches 81 podcast feeds, filters new episodes, picks the day's best."
+    },
+    {
+      "name": "coding-agent",
+      "agent": "BarleyBot",
+      "description": "Delegates complex builds to Coder via background process."
+    },
+    {
+      "name": "obsidian",
+      "agent": "BarleyBot",
+      "description": "Read and write to Obsidian vaults via obsidian-cli."
+    },
+    {
+      "name": "github",
+      "agent": "BarleyBot",
+      "description": "GitHub operations \u2014 issues, PRs, CI, code review via gh CLI."
+    }
+  ],
+  "companions": [
+    {
+      "name": "WalletBot",
+      "type": "Standalone Bot",
+      "emoji": "\ud83d\udcb0",
+      "stack": "Telegraf.js + Next.js + Supabase",
+      "bound_to": "Family Telegram group",
+      "description": "Two-person family finance bot. Natural language expense logging \u2014 'Zomato 850' is all you need. Claude classifies to 13 buckets. Dashboard for trends and goals.",
+      "note": "Not an OpenClaw agent \u2014 independent Telegraf.js bot deployed on Vercel."
+    }
   ]
 }
