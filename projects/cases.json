@@ -461,5 +461,77 @@
         "delta": "CX \u2192 Finance"
       }
     ]
+  },
+  {
+    "slug": "walletbot-family-finance",
+    "title": "WalletBot \u2014 Family Finance App",
+    "domain": "BUILD",
+    "status": "In Progress",
+    "date": "March 2026",
+    "industry": "Personal Finance / Consumer",
+    "problem": "Two-income household, 13 expense categories, savings goals, no shared system. Tracking happened in WhatsApp messages and memory. Month-end was always a reconstruction exercise.",
+    "built": "Telegram bot + Next.js dashboard. Natural language expense logging ('500 groceries', 'Zomato 850'). Claude classifies to 13 buckets. Salary tracking, savings goals, monthly P&L. Recharts dashboard with trends.",
+    "outcome": "Family finance tracked in real time \u2014 no spreadsheets, no end-of-month guesswork",
+    "stack": [
+      "Next.js 15",
+      "Telegraf.js",
+      "Supabase",
+      "Claude API",
+      "Recharts",
+      "shadcn/ui",
+      "Vercel"
+    ],
+    "excerpt": "Two-income household with no shared finance system. Built a Telegram bot where natural language expense logging ('Zomato 850') is classified by Claude into 13 buckets. Next.js dashboard for trends and goals.",
+    "context": "Managing family finances with two incomes, a child, and 13 distinct spending categories is genuinely complex. The existing approach: WhatsApp messages, memory, and a mental model that got reconstructed every month-end. Every recurring question \u2014 how much did we spend on kids this month? are we on track for the Japan trip savings? \u2014 required digging through transaction histories manually.",
+    "challenge": "Finance apps exist. The problem is adoption \u2014 they require behavior change, manual entry through an app, categorisation discipline. Most households start strong and abandon in week 3. The constraint was building something that fits into existing behavior, not trying to replace it.",
+    "approach": [
+      "Telegram as the interface \u2014 both users are already in Telegram daily. Zero new app, zero new habit",
+      "Natural language entry \u2014 'spent 1200 on Swiggy' or just '850 groceries'. No forms, no dropdowns",
+      "Claude classifies every expense into 13 buckets automatically \u2014 no manual categorisation",
+      "Shared state \u2014 both users can log, both see the same month's picture",
+      "Goals with allocation \u2014 'save [goal] [amount]' sets aside money toward specific targets (Japan trip, emergency fund)",
+      "Next.js dashboard for the visual layer \u2014 monthly trends, bucket breakdown, goal progress via Recharts"
+    ],
+    "decisions": [
+      {
+        "decision": "Telegram bot over a mobile app",
+        "rationale": "A native app requires download, login, and forming a new habit. Telegram is already open. Meets both users exactly where they are, multiple times a day."
+      },
+      {
+        "decision": "Claude for expense classification",
+        "rationale": "Rule-based classification breaks on 'Zomato', 'BigBasket', 'that parking thing'. Claude understands context and merchant names. Accuracy is significantly higher and requires no category maintenance."
+      },
+      {
+        "decision": "Monorepo (bot + web + db + shared)",
+        "rationale": "Bot and dashboard share types, database queries, and utilities. A monorepo keeps this in sync without duplication. pnpm workspaces handle it cleanly."
+      },
+      {
+        "decision": "Supabase for shared state",
+        "rationale": "Two users, one database. Supabase gives realtime, auth, and row-level security. Both users see the same month in real time."
+      }
+    ],
+    "learnings": [],
+    "metrics": [
+      {
+        "value": "13",
+        "label": "Expense buckets",
+        "delta": "auto-classified by Claude"
+      },
+      {
+        "value": "2",
+        "label": "Users sharing one ledger",
+        "delta": "real-time sync"
+      },
+      {
+        "value": "0",
+        "label": "Manual categorisation required",
+        "delta": "Claude handles it"
+      },
+      {
+        "value": "8",
+        "label": "Bot commands",
+        "delta": "/summary, /goals, /save, /undo..."
+      }
+    ]
   }
 ]
