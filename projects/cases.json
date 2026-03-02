@@ -2,7 +2,7 @@
   {
     "slug": "geneva-sales-pipeline",
     "title": "Geneva \u2014 Sales Pipeline",
-    "domain": "OPS",
+    "domain": "SALES",
     "status": "Live",
     "date": "February 2026",
     "industry": "Manufacturing / Window Coverings",
@@ -77,7 +77,7 @@
   {
     "slug": "hd-hire-ai-ats",
     "title": "HD Hire \u2014 AI Applicant Tracking",
-    "domain": "OPS",
+    "domain": "HR",
     "status": "Live",
     "date": "January 2026",
     "industry": "Manufacturing / Operations",
@@ -152,7 +152,7 @@
   {
     "slug": "spicescience-rag-app",
     "title": "SpiceScience \u2014 RAG Knowledge App",
-    "domain": "BUILD",
+    "domain": "RAG",
     "status": "Live",
     "date": "October 2025",
     "industry": "Food Science / Consumer",
@@ -225,7 +225,7 @@
   {
     "slug": "coachos-leadership-ai",
     "title": "CoachOS \u2014 Leadership Coach AI System",
-    "domain": "BUILD",
+    "domain": "COACHING",
     "status": "Live",
     "date": "February 2026",
     "industry": "Professional Services / Coaching",
@@ -302,7 +302,7 @@
   {
     "slug": "personal-ai-os",
     "title": "Personal AI OS \u2014 Agent Infrastructure",
-    "domain": "BUILD",
+    "domain": "INFRA",
     "status": "In Progress",
     "date": "March 2026",
     "industry": "Personal Infrastructure / AI Systems",
@@ -465,7 +465,7 @@
   {
     "slug": "walletbot-family-finance",
     "title": "WalletBot \u2014 Family Finance App",
-    "domain": "BUILD",
+    "domain": "FINANCE",
     "status": "In Progress",
     "date": "March 2026",
     "industry": "Personal Finance / Consumer",
