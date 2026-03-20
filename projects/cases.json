@@ -1,14 +1,14 @@
 [
   {
     "slug": "geneva-sales-pipeline",
-    "title": "Geneva \u2014 Sales Pipeline",
+    "title": "Geneva — Sales Pipeline",
     "domain": "SALES",
     "status": "Live",
     "date": "February 2026",
     "industry": "Manufacturing / Window Coverings",
     "problem": "Hunter Douglas India runs two sales divisions through disconnected tools. Pipeline visibility was manual. Leadership reporting required consolidating inputs from multiple people.",
-    "built": "Unified sales pipeline platform \u2014 FastAPI + React + Supabase + Railway. Telegram bot for field reps. Role-based dashboards for reps, managers, leadership.",
-    "outcome": "Time from field update to leadership visibility: days \u2192 hours",
+    "built": "Unified sales pipeline platform — FastAPI + React + Supabase + Railway. Telegram bot for field reps. Role-based dashboards for reps, managers, leadership.",
+    "outcome": "Time from field update to leadership visibility: days → hours",
     "stack": [
       "FastAPI",
       "React",
@@ -18,23 +18,23 @@
       "Redis"
     ],
     "excerpt": "Disconnected tools meant leadership visibility required manual consolidation across divisions. Built a unified pipeline platform with role-based dashboards and a Telegram bot for field reps.",
-    "context": "Hunter Douglas India \u2014 120 people across operations, manufacturing, and sales \u2014 operates two distinct sales divisions \u2014 Architectural Products (ceilings, facades, louvers) and Window Covering Products (blinds, curtains). Both divisions shared the same sales team structure but had no unified view of pipeline activity. At any given time, leadership had to wait for weekly Excel updates consolidated across 4\u20135 people before having a picture of where revenue was coming from. Field reps were on the road. They were not opening dashboards.",
-    "challenge": "The core problem was not data \u2014 it was latency. By the time a rep updated a spreadsheet, a manager reviewed it, and leadership consolidated the picture, the information was 3\u20135 days old. Decisions were being made on stale context. Stage transitions were not being logged, so there was no way to identify where deals were dying.",
+    "context": "Hunter Douglas India — 120 people across operations, manufacturing, and sales — operates two distinct sales divisions — Architectural Products (ceilings, facades, louvers) and Window Covering Products (blinds, curtains). Both divisions shared the same sales team structure but had no unified view of pipeline activity. At any given time, leadership had to wait for weekly Excel updates consolidated across 4–5 people before having a picture of where revenue was coming from. Field reps were on the road. They were not opening dashboards.",
+    "challenge": "The core problem was not data — it was latency. By the time a rep updated a spreadsheet, a manager reviewed it, and leadership consolidated the picture, the information was 3–5 days old. Decisions were being made on stale context. Stage transitions were not being logged, so there was no way to identify where deals were dying.",
     "approach": [
-      "Map the existing workflow before touching any code \u2014 understand how reps actually update deals, not how the process was supposed to work",
-      "Design around the Telegram-first interface \u2014 reps are on their phones, not laptops. If it is not a message, they will not use it",
-      "Build role-based views from day one \u2014 rep, manager, and leadership have different information needs. One dashboard for everyone serves no one",
-      "Log every stage transition with timestamp and actor \u2014 the audit trail is the product",
-      "Deploy on Railway for simplicity \u2014 sales-sized team, not a startup that needs Kubernetes"
+      "Map the existing workflow before touching any code — understand how reps actually update deals, not how the process was supposed to work",
+      "Design around the Telegram-first interface — reps are on their phones, not laptops. If it is not a message, they will not use it",
+      "Build role-based views from day one — rep, manager, and leadership have different information needs. One dashboard for everyone serves no one",
+      "Log every stage transition with timestamp and actor — the audit trail is the product",
+      "Deploy on Railway for simplicity — sales-sized team, not a startup that needs Kubernetes"
     ],
     "decisions": [
       {
         "decision": "Telegram bot as the primary rep interface",
-        "rationale": "Field reps spend the day on their phones. A web dashboard requires intent \u2014 opening a browser, logging in, navigating. A Telegram message is zero friction. Meets people where they already are."
+        "rationale": "Field reps spend the day on their phones. A web dashboard requires intent — opening a browser, logging in, navigating. A Telegram message is zero friction. Meets people where they already are."
       },
       {
         "decision": "FastAPI over Django or Node",
-        "rationale": "Async-first, fast to prototype, excellent Supabase integration. The team does not need the batteries Django includes \u2014 a clean REST API is all we need."
+        "rationale": "Async-first, fast to prototype, excellent Supabase integration. The team does not need the batteries Django includes — a clean REST API is all we need."
       },
       {
         "decision": "Supabase over a self-managed Postgres instance",
@@ -46,16 +46,16 @@
       }
     ],
     "learnings": [
-      "The best interface is the one people already use. Do not build a new habit \u2014 integrate with an existing one.",
+      "The best interface is the one people already use. Do not build a new habit — integrate with an existing one.",
       "Stage velocity (how fast deals move through funnel) is more actionable than total pipeline value. We added velocity tracking in sprint 3.",
-      "Role-based access is not just a security feature \u2014 it is a UX feature. Showing a rep their colleague's pipeline adds noise, not insight.",
+      "Role-based access is not just a security feature — it is a UX feature. Showing a rep their colleague's pipeline adds noise, not insight.",
       "Logging every action creates an audit trail that becomes invaluable for coaching conversations."
     ],
     "metrics": [
       {
         "value": "< 1h",
         "label": "Field to leadership visibility",
-        "delta": "from 3\u20135 days"
+        "delta": "from 3–5 days"
       },
       {
         "value": "2",
@@ -76,13 +76,13 @@
   },
   {
     "slug": "hd-hire-ai-ats",
-    "title": "HD Hire \u2014 AI Applicant Tracking",
+    "title": "HD Hire — AI Applicant Tracking",
     "domain": "HR",
     "status": "Live",
     "date": "January 2026",
     "industry": "Manufacturing / Operations",
     "problem": "Hiring at a 120-person company is high-stakes and under-resourced. CVs pile up. Feedback gets lost. Good candidates go cold while the team is busy running the business.",
-    "built": "AI-augmented ATS \u2014 Claude scores applications, ElevenLabs handles voice screening, candidates self-schedule via Cal.com. Full email automation via Resend.",
+    "built": "AI-augmented ATS — Claude scores applications, ElevenLabs handles voice screening, candidates self-schedule via Cal.com. Full email automation via Resend.",
     "outcome": "Consistent, repeatable hiring process that does not depend on someone having bandwidth",
     "stack": [
       "Next.js",
@@ -93,19 +93,19 @@
       "Resend"
     ],
     "excerpt": "At a 120-person company, hiring is high-stakes and under-resourced. Built an AI-augmented ATS where Claude scores applications and ElevenLabs runs voice screening.",
-    "context": "Every hire at a 120-person company has outsized impact. A bad hire in a small team does not get absorbed \u2014 it creates friction that affects everyone. And yet, the hiring process was the least systematised part of the operation. CVs arrived via email, were discussed over WhatsApp, and feedback was stored in someone's head. Candidates would go a week without hearing anything \u2014 not because no one cared, but because the team was busy running the business.",
-    "challenge": "The constraint was not budget or intent \u2014 it was bandwidth. Screening CVs takes time. Scheduling calls takes coordination. Following up requires remembering. A small team simply does not have the overhead to run a rigorous process manually.",
+    "context": "Every hire at a 120-person company has outsized impact. A bad hire in a small team does not get absorbed — it creates friction that affects everyone. And yet, the hiring process was the least systematised part of the operation. CVs arrived via email, were discussed over WhatsApp, and feedback was stored in someone's head. Candidates would go a week without hearing anything — not because no one cared, but because the team was busy running the business.",
+    "challenge": "The constraint was not budget or intent — it was bandwidth. Screening CVs takes time. Scheduling calls takes coordination. Following up requires remembering. A small team simply does not have the overhead to run a rigorous process manually.",
     "approach": [
-      "Design the candidate experience first \u2014 a slow, disorganised process reflects on the company even when no one is hired",
+      "Design the candidate experience first — a slow, disorganised process reflects on the company even when no one is hired",
       "Use AI for the repeatable parts: CV scoring, initial screening, email follow-ups. Keep humans for the judgment calls",
-      "Self-scheduling eliminates the coordination loop \u2014 candidates pick a slot, no back-and-forth email chains",
-      "Voice screening via ElevenLabs handles the first conversation \u2014 evaluates communication, availability, and basics before a human is involved",
-      "Automate the full email lifecycle \u2014 every candidate gets a response"
+      "Self-scheduling eliminates the coordination loop — candidates pick a slot, no back-and-forth email chains",
+      "Voice screening via ElevenLabs handles the first conversation — evaluates communication, availability, and basics before a human is involved",
+      "Automate the full email lifecycle — every candidate gets a response"
     ],
     "decisions": [
       {
         "decision": "Claude for CV scoring with structured JSON output",
-        "rationale": "LLMs are remarkably good at reading CVs against a rubric and returning structured scores. The output is consistent, explainable, and auditable \u2014 better than gut feel and faster than manual review."
+        "rationale": "LLMs are remarkably good at reading CVs against a rubric and returning structured scores. The output is consistent, explainable, and auditable — better than gut feel and faster than manual review."
       },
       {
         "decision": "ElevenLabs Conversational AI for voice screening",
@@ -113,17 +113,17 @@
       },
       {
         "decision": "Cal.com for self-scheduling",
-        "rationale": "Eliminating the scheduling loop saves 2\u20133 email exchanges per candidate. At 50 applicants per role, that is significant overhead removed."
+        "rationale": "Eliminating the scheduling loop saves 2–3 email exchanges per candidate. At 50 applicants per role, that is significant overhead removed."
       },
       {
         "decision": "Resend for email automation with React Email templates",
-        "rationale": "Every candidate deserves a response. Resend makes transactional email reliable and templated \u2014 no one falls through the cracks."
+        "rationale": "Every candidate deserves a response. Resend makes transactional email reliable and templated — no one falls through the cracks."
       }
     ],
     "learnings": [
       "AI scoring is most useful as a filter, not a decision. It surfaces the clear rejections quickly, freeing human attention for the interesting candidates.",
-      "Candidates self-schedule faster than expected \u2014 removing the back-and-forth meaningfully speeds the process.",
-      "PDF parsing is a genuine constraint \u2014 scanned CVs are not text-layer readable. Accepted as a known limitation in v1.",
+      "Candidates self-schedule faster than expected — removing the back-and-forth meaningfully speeds the process.",
+      "PDF parsing is a genuine constraint — scanned CVs are not text-layer readable. Accepted as a known limitation in v1.",
       "The hiring team dashboard needs to be opinionated about what is actionable today, not just a list of candidates."
     ],
     "metrics": [
@@ -151,7 +151,7 @@
   },
   {
     "slug": "spicescience-rag-app",
-    "title": "SpiceScience \u2014 RAG Knowledge App",
+    "title": "SpiceScience — RAG Knowledge App",
     "domain": "RAG",
     "status": "Live",
     "date": "October 2025",
@@ -167,18 +167,18 @@
       "Pinecone Inference API"
     ],
     "excerpt": "Embedded 1,200+ knowledge chunks from The Science of Spice into Pinecone. Built a RAG system with Spice Explorer, Custom Blend Creator, and cuisine recommendations.",
-    "context": "The Science of Spice by Stuart Farrimond is a rigorous book on the molecular chemistry of flavour \u2014 why certain spice combinations work, what compounds drive heat or sweetness, how aromatic profiles interact. Dense, scientific, and largely inaccessible to anyone who has not read and retained the whole thing. The insight: this book is a domain expert compressed into 300 pages. RAG could make that expert available on demand.",
-    "challenge": "The experiment was about the pattern, not the product. Could you take a single book of dense domain knowledge and make it genuinely useful via natural language? If yes, the same approach applies everywhere \u2014 internal playbooks, compliance documents, technical manuals, coaching frameworks.",
+    "context": "The Science of Spice by Stuart Farrimond is a rigorous book on the molecular chemistry of flavour — why certain spice combinations work, what compounds drive heat or sweetness, how aromatic profiles interact. Dense, scientific, and largely inaccessible to anyone who has not read and retained the whole thing. The insight: this book is a domain expert compressed into 300 pages. RAG could make that expert available on demand.",
+    "challenge": "The experiment was about the pattern, not the product. Could you take a single book of dense domain knowledge and make it genuinely useful via natural language? If yes, the same approach applies everywhere — internal playbooks, compliance documents, technical manuals, coaching frameworks.",
     "approach": [
-      "Chunk the book into semantically coherent sections \u2014 not arbitrary character limits",
+      "Chunk the book into semantically coherent sections — not arbitrary character limits",
       "Embed using Pinecone Inference API with multilingual-e5-large for high-quality semantic search",
       "Build three distinct interfaces: Explorer (browse by spice), Blend Creator (describe a dish, get a recipe), Cuisine Guide (15+ world cuisines)",
-      "Keep the frontend deliberately simple \u2014 vanilla JS. The intelligence is in the retrieval layer, not the UI"
+      "Keep the frontend deliberately simple — vanilla JS. The intelligence is in the retrieval layer, not the UI"
     ],
     "decisions": [
       {
         "decision": "Pinecone Inference API for embeddings",
-        "rationale": "Eliminates the need to manage a separate embedding model. Pinecone handles embedding and retrieval in one service \u2014 simpler architecture."
+        "rationale": "Eliminates the need to manage a separate embedding model. Pinecone handles embedding and retrieval in one service — simpler architecture."
       },
       {
         "decision": "1,225 chunks from the full book",
@@ -194,10 +194,10 @@
       }
     ],
     "learnings": [
-      "RAG is most powerful on dense, structured knowledge that experts have but is not easily searchable. Books, manuals, frameworks \u2014 not general web content.",
+      "RAG is most powerful on dense, structured knowledge that experts have but is not easily searchable. Books, manuals, frameworks — not general web content.",
       "Chunk quality matters more than chunk quantity. 1,200 well-structured chunks outperformed 5,000 arbitrary splits.",
       "The real insight was identifying the pattern: every organisation has the equivalent of this book. Expertise trapped in documents.",
-      "User questions reveal what the knowledge base cannot answer \u2014 a useful signal for identifying gaps."
+      "User questions reveal what the knowledge base cannot answer — a useful signal for identifying gaps."
     ],
     "metrics": [
       {
@@ -224,7 +224,7 @@
   },
   {
     "slug": "coachos-leadership-ai",
-    "title": "CoachOS \u2014 Leadership Coach AI System",
+    "title": "CoachOS — Leadership Coach AI System",
     "domain": "COACHING",
     "status": "Live",
     "date": "February 2026",
@@ -241,16 +241,16 @@
       "Cal.com",
       "Fireflies.ai"
     ],
-    "excerpt": "30 years of coaching expertise buried in notes and sessions. Built an AI system that surfaces institutional knowledge on demand and drafts session prep \u2014 nothing reaches clients without approval.",
-    "context": "The coach had been working with leaders across industries for 30 years. That experience was real and valuable \u2014 but it was stored across handwritten notes, Word documents, Zoom recordings, and memory. Every new client engagement started from scratch. The coach could not easily pull up what had worked for a similar client two years ago, or which framework had unlocked a particular kind of stuck leader.",
-    "challenge": "The design constraint was explicit: AI drafts everything, the coach approves everything. Nothing reaches a client without a human decision. This is not about replacing the coach \u2014 it is about giving the coach more time to exercise judgment.",
+    "excerpt": "30 years of coaching expertise buried in notes and sessions. Built an AI system that surfaces institutional knowledge on demand and drafts session prep — nothing reaches clients without approval.",
+    "context": "The coach had been working with leaders across industries for 30 years. That experience was real and valuable — but it was stored across handwritten notes, Word documents, Zoom recordings, and memory. Every new client engagement started from scratch. The coach could not easily pull up what had worked for a similar client two years ago, or which framework had unlocked a particular kind of stuck leader.",
+    "challenge": "The design constraint was explicit: AI drafts everything, the coach approves everything. Nothing reaches a client without a human decision. This is not about replacing the coach — it is about giving the coach more time to exercise judgment.",
     "approach": [
-      "Use Airtable as the CRM \u2014 database-first, reliable, relational. The coach could already use it",
-      "Obsidian as the knowledge base \u2014 30 years of frameworks in markdown, searchable and portable",
+      "Use Airtable as the CRM — database-first, reliable, relational. The coach could already use it",
+      "Obsidian as the knowledge base — 30 years of frameworks in markdown, searchable and portable",
       "Dual-layer Pinecone: one namespace for Obsidian (frameworks, methodologies), one for client documents (session notes, assessments)",
-      "Fireflies.ai for automatic meeting transcription \u2014 no manual export, no coach overhead",
-      "Make.com for automation orchestration \u2014 the coach is non-technical, no-code was the right choice",
-      "Claude for all drafting \u2014 session prep, follow-up summaries, client communications"
+      "Fireflies.ai for automatic meeting transcription — no manual export, no coach overhead",
+      "Make.com for automation orchestration — the coach is non-technical, no-code was the right choice",
+      "Claude for all drafting — session prep, follow-up summaries, client communications"
     ],
     "decisions": [
       {
@@ -259,7 +259,7 @@
       },
       {
         "decision": "Fireflies.ai over manual transcription",
-        "rationale": "Auto-joins meetings, transcribes, webhooks to the system. The coach conducts the session \u2014 the system handles the documentation."
+        "rationale": "Auto-joins meetings, transcribes, webhooks to the system. The coach conducts the session — the system handles the documentation."
       },
       {
         "decision": "Make.com over custom code for automation",
@@ -271,10 +271,10 @@
       }
     ],
     "learnings": [
-      "The hardest part was not the technology \u2014 it was building trust that AI would extend capacity, not replace judgment.",
+      "The hardest part was not the technology — it was building trust that AI would extend capacity, not replace judgment.",
       "Dual-namespace RAG is significantly more precise than a single mixed index.",
       "Session prep is the highest-leverage automation: 45-minute manual research reduced to a reviewed draft in minutes.",
-      "The same pattern applies to any expert who has accumulated knowledge over time \u2014 consultants, lawyers, doctors, senior operators."
+      "The same pattern applies to any expert who has accumulated knowledge over time — consultants, lawyers, doctors, senior operators."
     ],
     "metrics": [
       {
@@ -301,14 +301,14 @@
   },
   {
     "slug": "personal-ai-os",
-    "title": "Personal AI OS \u2014 Agent Infrastructure",
+    "title": "Personal AI OS — Agent Infrastructure",
     "domain": "INFRA",
     "status": "In Progress",
     "date": "March 2026",
     "industry": "Personal Infrastructure / AI Systems",
     "problem": "Running a 120-person business while building AI systems means context-switching constantly. Information gets lost between sessions. The same questions get answered again.",
     "built": "3-agent system (orchestrator + research + coding). 3-layer memory architecture. Daily digests across 80+ sources. Deep research skill. Voice transcription via Groq Whisper.",
-    "outcome": "Active \u2014 compounds daily",
+    "outcome": "Active — compounds daily",
     "stack": [
       "OpenClaw",
       "Claude",
@@ -318,14 +318,14 @@
       "GitHub"
     ],
     "excerpt": "3-agent system with orchestrator, research, and coding agents. 3-layer memory architecture and daily digests across 80+ sources. Voice transcription via Groq Whisper.",
-    "context": "At some point the question shifted from what should I build to what infrastructure do I need to build anything well. Each session with an AI assistant started from scratch \u2014 no memory of past decisions, no awareness of current projects, no context about what had already been tried.",
+    "context": "At some point the question shifted from what should I build to what infrastructure do I need to build anything well. Each session with an AI assistant started from scratch — no memory of past decisions, no awareness of current projects, no context about what had already been tried.",
     "challenge": "Most AI assistant setups are stateless by default. Each conversation is isolated. The challenge was building persistent context without that becoming a maintenance burden in itself.",
     "approach": [
       "Three agents with distinct roles: BarleyBot (orchestrator, memory, daily ops), Coffee (deep research), Coder (builds)",
-      "Each agent bound to a specific Telegram context \u2014 right agent, right conversation, no cross-contamination",
+      "Each agent bound to a specific Telegram context — right agent, right conversation, no cross-contamination",
       "Three-layer memory: active session context, daily logs (raw), long-term curated knowledge base",
       "Daily cron infrastructure: podcast digest (81 feeds), RSS digest (13 feeds), daily wrap and LinkedIn draft at 10:30 PM IST",
-      "Groq Whisper for voice note transcription \u2014 send a voice message, get a text response",
+      "Groq Whisper for voice note transcription — send a voice message, get a text response",
       "GitHub integration: agent reads all repos and surfaces daily commits in the nightly wrap"
     ],
     "decisions": [
@@ -382,9 +382,9 @@
     "status": "Live",
     "date": "March 2026",
     "industry": "DTC / Window Coverings",
-    "problem": "Hillary's is a DTC window coverings brand under Hunter Douglas operating in Bangalore. 600+ homes served lifetime, 100+ active. The entire business ran manually \u2014 order intake, procurement, tailoring, installation, payment \u2014 each step in a different tool, no single system of record.",
+    "problem": "Hillary's is a DTC window coverings brand under Hunter Douglas operating in Bangalore. 600+ homes served lifetime, 100+ active. The entire business ran manually — order intake, procurement, tailoring, installation, payment — each step in a different tool, no single system of record.",
     "built": "End-to-end order lifecycle OS. 6 role-based dashboards (CX, Procurement, Warehouse, Installation, Finance, Admin). 6 automated cascades that move orders through the pipeline without human intervention. Real-time action queues, rework routing, audit log.",
-    "outcome": "A live business \u2014 600+ homes, 100+ active orders \u2014 running on a single system built in 12 sprints",
+    "outcome": "A live business — 600+ homes, 100+ active orders — running on a single system built in 12 sprints",
     "stack": [
       "Next.js 14",
       "Supabase",
@@ -394,16 +394,16 @@
       "Playwright",
       "Vitest"
     ],
-    "excerpt": "Hillary's DTC window coverings business ran 600+ home installations manually. Built the full operational OS \u2014 6 role dashboards, 6 automated cascades, real-time queues \u2014 in 12 sprints. Now the system of record for the whole business.",
-    "context": "Hillary's is a direct-to-consumer window coverings brand operating under Hunter Douglas in Bangalore. Unlike B2B, DTC means every order is a distinct customer journey \u2014 intake, measurement visit, procurement, tailoring (for curtains), installation, payment. At 600+ homes served and 100+ active orders, managing this manually meant things fell through the cracks constantly. No one had a complete picture of where any given order was. Installers were coordinated over WhatsApp. Payment follow-up was reactive.",
-    "challenge": "The order journey for window coverings is genuinely complex. Blinds skip tailoring. Curtains need fabric procurement, then tailoring, then QC, then dispatch. Reworks can re-enter at multiple points. An order might have 4 POs, 3 GRN entries, a tailor assignment, a rework, and two installation visits \u2014 all of which need to stay in sync. The cascade logic alone took 4 sprints to get right.",
+    "excerpt": "Hillary's DTC window coverings business ran 600+ home installations manually. Built the full operational OS — 6 role dashboards, 6 automated cascades, real-time queues — in 12 sprints. Now the system of record for the whole business.",
+    "context": "Hillary's is a direct-to-consumer window coverings brand operating under Hunter Douglas in Bangalore. Unlike B2B, DTC means every order is a distinct customer journey — intake, measurement visit, procurement, tailoring (for curtains), installation, payment. At 600+ homes served and 100+ active orders, managing this manually meant things fell through the cracks constantly. No one had a complete picture of where any given order was. Installers were coordinated over WhatsApp. Payment follow-up was reactive. Through March 2026, continued sprint development added an advance payment gate system (50% threshold with tranche tracking), a CX Partial Order Tracker with rework pipeline visibility, internal vs external installer classification, and Warehouse 'Awaiting Delivery' bucketing. The system is actively used daily by the full Hillarys India team.",
+    "challenge": "The order journey for window coverings is genuinely complex. Blinds skip tailoring. Curtains need fabric procurement, then tailoring, then QC, then dispatch. Reworks can re-enter at multiple points. An order might have 4 POs, 3 GRN entries, a tailor assignment, a rework, and two installation visits — all of which need to stay in sync. The cascade logic alone took 4 sprints to get right.",
     "approach": [
-      "Map every role's workflow before writing code \u2014 CX, Procurement, Warehouse, Tailor, Installer, Finance each have distinct needs",
-      "Design the data model around the order lifecycle, not the org chart \u2014 one order record carries context through every stage",
-      "Build cascades for the handoffs that always happen the same way \u2014 when all GRNs are complete, auto-create the next stage record",
-      "Action-bucket UI for every role \u2014 not a list of orders, but 'here is what needs your attention right now'",
-      "Rework as a first-class flow \u2014 not an edge case. It happens enough to need its own routing logic",
-      "Supabase Realtime for live queue counts \u2014 no one refreshes a page manually in operations"
+      "Map every role's workflow before writing code — CX, Procurement, Warehouse, Tailor, Installer, Finance each have distinct needs",
+      "Design the data model around the order lifecycle, not the org chart — one order record carries context through every stage",
+      "Build cascades for the handoffs that always happen the same way — when all GRNs are complete, auto-create the next stage record",
+      "Action-bucket UI for every role — not a list of orders, but 'here is what needs your attention right now'",
+      "Rework as a first-class flow — not an edge case. It happens enough to need its own routing logic",
+      "Supabase Realtime for live queue counts — no one refreshes a page manually in operations"
     ],
     "decisions": [
       {
@@ -412,7 +412,7 @@
       },
       {
         "decision": "Cascade architecture over manual handoffs",
-        "rationale": "The 6 cascades (auto-create GRN when PO delivery is logged, auto-create installation when GRN is complete, etc.) eliminate the coordination overhead between roles. The system moves the order \u2014 people just do their step."
+        "rationale": "The 6 cascades (auto-create GRN when PO delivery is logged, auto-create installation when GRN is complete, etc.) eliminate the coordination overhead between roles. The system moves the order — people just do their step."
       },
       {
         "decision": "Hard delete with full audit snapshot",
@@ -426,7 +426,7 @@
     "learnings": [
       "Cascade logic is the hardest part of any multi-stage ops system. The edge cases (rework purchases re-entering the GRN flow, partial installations needing re-scheduling) require explicit design, not just handling.",
       "Action-bucket UI is significantly more useful than a status list. 'Show me orders where I need to do something' beats 'show me all orders sorted by status'.",
-      "Supabase RLS + role-based routing is a clean pattern for this kind of system. Each role's dashboard query is already scoped \u2014 no accidental data exposure.",
+      "Supabase RLS + role-based routing is a clean pattern for this kind of system. Each role's dashboard query is already scoped — no accidental data exposure.",
       "12 sprints of 15 tasks each is a surprisingly effective cadence for a system this complex. Small, shippable increments that each add a real workflow."
     ],
     "metrics": [
@@ -441,9 +441,9 @@
         "delta": "all on one system"
       },
       {
-        "value": "12",
+        "value": "13+",
         "label": "Sprints to production",
-        "delta": "162 tasks completed"
+        "delta": "170+ tasks completed"
       },
       {
         "value": "6",
@@ -458,20 +458,20 @@
       {
         "value": "6",
         "label": "Role-based dashboards",
-        "delta": "CX \u2192 Finance"
+        "delta": "CX → Finance"
       }
     ]
   },
   {
     "slug": "walletbot-family-finance",
-    "title": "WalletBot \u2014 Family Finance App",
+    "title": "WalletBot — Family Finance App",
     "domain": "FINANCE",
     "status": "In Progress",
     "date": "March 2026",
     "industry": "Personal Finance / Consumer",
     "problem": "Two-income household, 13 expense categories, savings goals, no shared system. Tracking happened in WhatsApp messages and memory. Month-end was always a reconstruction exercise.",
     "built": "Telegram bot + Next.js dashboard. Natural language expense logging ('500 groceries', 'Zomato 850'). Claude classifies to 13 buckets. Salary tracking, savings goals, monthly P&L. Recharts dashboard with trends.",
-    "outcome": "Family finance tracked in real time \u2014 no spreadsheets, no end-of-month guesswork",
+    "outcome": "Family finance tracked in real time — no spreadsheets, no end-of-month guesswork",
     "stack": [
       "Next.js 15",
       "Telegraf.js",
@@ -482,15 +482,15 @@
       "Vercel"
     ],
     "excerpt": "Two-income household with no shared finance system. Built a Telegram bot where natural language expense logging ('Zomato 850') is classified by Claude into 13 buckets. Next.js dashboard for trends and goals.",
-    "context": "Managing family finances with two incomes, a child, and 13 distinct spending categories is genuinely complex. The existing approach: WhatsApp messages, memory, and a mental model that got reconstructed every month-end. Every recurring question \u2014 how much did we spend on kids this month? are we on track for the Japan trip savings? \u2014 required digging through transaction histories manually.",
-    "challenge": "Finance apps exist. The problem is adoption \u2014 they require behavior change, manual entry through an app, categorisation discipline. Most households start strong and abandon in week 3. The constraint was building something that fits into existing behavior, not trying to replace it.",
+    "context": "Managing family finances with two incomes, a child, and 13 distinct spending categories is genuinely complex. The existing approach: WhatsApp messages, memory, and a mental model that got reconstructed every month-end. Every recurring question — how much did we spend on kids this month? are we on track for the Japan trip savings? — required digging through transaction histories manually.",
+    "challenge": "Finance apps exist. The problem is adoption — they require behavior change, manual entry through an app, categorisation discipline. Most households start strong and abandon in week 3. The constraint was building something that fits into existing behavior, not trying to replace it.",
     "approach": [
-      "Telegram as the interface \u2014 both users are already in Telegram daily. Zero new app, zero new habit",
-      "Natural language entry \u2014 'spent 1200 on Swiggy' or just '850 groceries'. No forms, no dropdowns",
-      "Claude classifies every expense into 13 buckets automatically \u2014 no manual categorisation",
-      "Shared state \u2014 both users can log, both see the same month's picture",
-      "Goals with allocation \u2014 'save [goal] [amount]' sets aside money toward specific targets (Japan trip, emergency fund)",
-      "Next.js dashboard for the visual layer \u2014 monthly trends, bucket breakdown, goal progress via Recharts"
+      "Telegram as the interface — both users are already in Telegram daily. Zero new app, zero new habit",
+      "Natural language entry — 'spent 1200 on Swiggy' or just '850 groceries'. No forms, no dropdowns",
+      "Claude classifies every expense into 13 buckets automatically — no manual categorisation",
+      "Shared state — both users can log, both see the same month's picture",
+      "Goals with allocation — 'save [goal] [amount]' sets aside money toward specific targets (Japan trip, emergency fund)",
+      "Next.js dashboard for the visual layer — monthly trends, bucket breakdown, goal progress via Recharts"
     ],
     "decisions": [
       {
@@ -531,6 +531,173 @@
         "value": "8",
         "label": "Bot commands",
         "delta": "/summary, /goals, /save, /undo..."
+      }
+    ]
+  },
+  {
+    "slug": "sitecapture-field-app",
+    "title": "SiteCapture — Field Check Measure App",
+    "domain": "OPS",
+    "status": "Live",
+    "date": "March 2026",
+    "industry": "DTC / Window Coverings",
+    "problem": "Hillarys India runs 3 field visits per customer order — sales, check measure, installation. No structured system connected them. Installers used paper notes and WhatsApp photos. CX manually bridged data between systems. Miscommunication caused rework.",
+    "built": "iPad-optimized offline PWA for field and office teams. 4 role-based flows (CX, Installation Coordinator, Installer, Admin). Window-by-window photo capture, DC measurements, customer signature. Quote PDF parsing. Shared Supabase DB with Ops OS. 9 sprints, 69 commits in 4 days.",
+    "outcome": "Structured site data — photos, measurements, customer sign-off — captured at check measure and carried through to installation",
+    "stack": [
+      "Next.js 16",
+      "Supabase",
+      "TypeScript",
+      "Tailwind CSS 4",
+      "Zustand",
+      "PWA / Service Worker",
+      "IndexedDB",
+      "jspdf",
+      "Vitest"
+    ],
+    "excerpt": "Hillarys India's 3-visit customer journey ran on paper notes and WhatsApp. Built a field PWA for check measure and installation — photo capture, customer signature, quote PDF parsing — shared database with Ops OS. 9 sprints, 69 commits in 4 days.",
+    "context": "SiteCapture is the third system in the Hillarys India stack, alongside Ops OS (order lifecycle) and InSite (sales/design consultation). Every order that needs a check measure goes through SiteCapture — CX creates the project, an installer visits site with an iPad to capture measurements and photos, CX reviews and generates a PDF, the customer signs off, and then installation is scheduled. Without SiteCapture, all of this happened via WhatsApp messages, paper forms, and manual data re-entry. The gap between what was measured on site and what the installer arrived with was the primary cause of rework.",
+    "challenge": "Field tools have hard constraints: unreliable connectivity, multiple device sizes, roles with completely different tasks. An installer on site cannot be waiting for the server. CX in the office needs to see everything the installer captured, exactly as captured. The customer confirmation step — getting a digital signature and sharing a specification PDF — had to work as smoothly on an iPad in a customer's home as on a desktop in the office. Building offline-first without compromising data integrity is the hardest part.",
+    "approach": [
+      "Offline-first from day one — all installer actions auto-save to IndexedDB, queue photos for upload when connectivity returns",
+      "Shared Supabase project with Ops OS — same DB, same auth, same roles. SiteCapture links to orders by JID. No separate auth system, no data duplication",
+      "Window-by-window capture model — each window is a discrete record with its own photos, measurements, and product confirmation. Installers work through windows one at a time",
+      "PDF generation on the server — quote PDF parsed from InSite output (pdfjs-dist), overlaid with SiteCapture data and customer confirmation",
+      "Customer signature at check measure completion — captured in-app, attached to the PDF, sent to customer before installation is scheduled",
+      "Hillarys brand guidelines applied across all surfaces — same design system as Ops OS for consistent team experience"
+    ],
+    "decisions": [
+      {
+        "decision": "Shared Supabase project with Ops OS",
+        "rationale": "The same database means financials (invoice amount, advance) flow automatically from the Ops OS orders table by JID. No sync, no API, no duplication. CX can see the full picture without switching systems."
+      },
+      {
+        "decision": "IndexedDB via Zustand persist for offline-first",
+        "rationale": "Installers work on site with variable connectivity. Auto-save to IndexedDB ensures no data loss. Photo queue uploads when connectivity returns. The app never blocks on the server."
+      },
+      {
+        "decision": "4 distinct roles, not one admin view",
+        "rationale": "CX creates and reviews. Coordinators schedule. Installers capture. Admins manage. Each role sees only what they need to act on. One view for all roles would be unusable in the field."
+      },
+      {
+        "decision": "pdfjs-dist for quote PDF parsing",
+        "rationale": "InSite generates a quote PDF. SiteCapture needs to extract confirmed measurements and product specs from it without manual re-entry. PDF parsing was the only non-manual option."
+      }
+    ],
+    "learnings": [
+      "Offline-first is not a feature — it is a constraint that shapes the entire data model. Design for it from day zero, not as a retrofit.",
+      "Shared database across systems eliminates the sync problem entirely. More complex to model but dramatically simpler in operation.",
+      "Field roles and office roles have completely different UX needs. Pixel-perfect on desktop is irrelevant if the installer cannot use it with one hand on an iPad in a customer's home.",
+      "PDF parsing from a third-party system is fragile — any template change breaks it. Built with explicit fallback to manual entry."
+    ],
+    "metrics": [
+      {
+        "value": "9",
+        "label": "Sprints shipped",
+        "delta": "Wave 1–5 complete"
+      },
+      {
+        "value": "69",
+        "label": "Commits in 4 days",
+        "delta": "Mar 16–18 2026"
+      },
+      {
+        "value": "4",
+        "label": "Role-based flows",
+        "delta": "CX, Coordinator, Installer, Admin"
+      },
+      {
+        "value": "0",
+        "label": "Manual data re-entry",
+        "delta": "shared Supabase DB with Ops OS"
+      },
+      {
+        "value": "100%",
+        "label": "Customer alignment target",
+        "delta": "before installation"
+      }
+    ]
+  },
+  {
+    "slug": "vayu-breathwork-app",
+    "title": "Vayu — Breathwork Training App",
+    "domain": "PRODUCT",
+    "status": "Live",
+    "date": "March 2026",
+    "industry": "Health / Personal",
+    "problem": "Breathwork is evidence-backed for nervous system regulation, but most people default to one technique without understanding which method maps to which outcome. No feedback loop. No measurement. No consistent practice.",
+    "built": "Personal PWA for structured breathwork. 12+ scientifically-grounded techniques classified by intent (Calm, Energize, Focus, Sleep, Recovery). Animated breath guide with Canvas-rendered organic form. Session streaks, insights dashboard, mood delta tracking. Origami design system — washi paper aesthetic, fold shadows, breath-speed animations. 10 sprints to v2.0.0.",
+    "outcome": "Intent-matched technique selection with streak tracking and measurable mood improvement across sessions",
+    "stack": [
+      "Next.js 15",
+      "TypeScript",
+      "Framer Motion",
+      "Canvas API",
+      "Dexie.js / IndexedDB",
+      "Zustand",
+      "PWA / Serwist",
+      "Tailwind CSS"
+    ],
+    "excerpt": "Personal breathwork PWA with 12+ techniques classified by intent. Canvas-rendered organic breath animation. Mood delta tracking across sessions. Origami design system — washi paper aesthetic, fold shadows, everything breathes. 10 sprints, v2.0.0 shipped.",
+    "context": "Vayu started as a personal tool — a precision instrument for daily breath training, not a generic wellness app. The hypothesis: if you know which breathing technique to use for which physiological state (4-7-8 for sleep, Wim Hof for resilience, Box Breathing for focus), and you track the mood delta before and after each session, the data compounds into a picture of what actually works for you. Most apps give you guided audio. Vayu gives you a practice with measurement.",
+    "challenge": "The design constraint was the hardest part: the UI had to reinforce the product's purpose. A breathwork app with snappy spring animations and hard geometric UI works against itself. Every animation curve, every shadow, every spacing decision is functional — it either adds calm or breaks it. The technical challenge was the Canvas-rendered breath animation — an organic luminous form that expands and contracts against a void, not a circle.",
+    "approach": [
+      "12+ techniques grouped by intent — Calm, Energize, Focus, Sleep, Recovery — so the selection decision is made by outcome, not by technique name recognition",
+      "Canvas API for the breath animation — organic, luminous, asymmetric form. Not a circle expanding. A shape that breathes",
+      "Mood delta as the core insight metric — pre/post session mood on a 5-point scale. The delta over time is the proof the practice is working",
+      "Origami design system — Japanese washi paper aesthetic. Fold shadows replace all borders. Instrument Serif for headings. Breath-speed easing on every transition (cubic-bezier(0.22, 1, 0.36, 1) — natural exhale deceleration)",
+      "Offline-first PWA — sessions work without connectivity. IndexedDB via Dexie.js for all local state",
+      "10 sprints from scaffold to v2.0.0, then post-ship origami UI redesign across all 4 screens"
+    ],
+    "decisions": [
+      {
+        "decision": "Canvas API over SVG for the breath animation",
+        "rationale": "The breath form is organic and asymmetric — not a path you can define in SVG. Canvas gives 60fps control over every pixel. The luminous glow, grain texture, and radial gradient required it."
+      },
+      {
+        "decision": "Intent-first technique classification",
+        "rationale": "Most people know technique names but not when to use them. Grouping by outcome (Calm / Energize / Focus) makes the selection decision contextual. You pick by what you need, not what you remember."
+      },
+      {
+        "decision": "Offline-first with Dexie.js / IndexedDB",
+        "rationale": "A breathwork session should never fail because of connectivity. All session data, technique library, and progress state live locally first."
+      },
+      {
+        "decision": "Origami design system post-ship",
+        "rationale": "v2.0.0 was functional. The origami redesign was about integrity — a breathwork app should feel like it belongs to the practice. Paper, shadow, breath. Everything else would have been a mismatch."
+      }
+    ],
+    "learnings": [
+      "Design language is product language. In a breathwork app, the UI either supports the state you're trying to induce or it undermines it. There is no neutral.",
+      "Intent-first classification is more useful than technique-first. Users know they're anxious — they don't know they want 4-7-8.",
+      "The Canvas breath animation is the product. Everything else — streaks, insights, library — exists to support consistent return to that screen.",
+      "10 sprints from zero to v2.0.0 with full offline support, audio engine, and insights dashboard is achievable with AI-assisted development and tight governance."
+    ],
+    "metrics": [
+      {
+        "value": "12+",
+        "label": "Breathing techniques",
+        "delta": "classified by physiological intent"
+      },
+      {
+        "value": "10",
+        "label": "Sprints to v2.0.0",
+        "delta": "scaffold to production"
+      },
+      {
+        "value": "5",
+        "label": "Intent categories",
+        "delta": "Calm / Energize / Focus / Sleep / Recovery"
+      },
+      {
+        "value": "4",
+        "label": "Screens redesigned",
+        "delta": "post-ship origami system"
+      },
+      {
+        "value": "0",
+        "label": "Connectivity required",
+        "delta": "offline-first PWA"
       }
     ]
   }
