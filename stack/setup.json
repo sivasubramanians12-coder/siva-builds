@@ -151,6 +151,15 @@
       "bound_to": "Family Telegram group",
       "description": "Two-person family finance bot. Natural language expense logging \u2014 'Zomato 850' is all you need. Claude classifies to 13 buckets. Dashboard for trends and goals.",
       "note": "Not an OpenClaw agent \u2014 independent Telegraf.js bot deployed on Vercel."
+    },
+    {
+      "name": "HealthBot",
+      "type": "Bound Agent",
+      "emoji": "\ud83d\udcaa",
+      "stack": "OpenClaw + Claude + Telegram",
+      "bound_to": "Private health Telegram group",
+      "description": "Personal health coach agent. Tracks a 100-day program \u2014 training adherence, sleep, Whoop data interpretation, craving accountability. Reads structured program and memory files. No health data stored in the public stack.",
+      "note": "OpenClaw agent bound to a private group. Persona: Coach \u2014 not BarleyBot."
     }
   ]
 }
