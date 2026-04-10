@@ -72,6 +72,16 @@
         "label": "Role-based views",
         "delta": "Rep / Manager / Leadership"
       }
+    ],
+    "screenshots": [
+      {
+        "url": "https://raw.githubusercontent.com/sivasubramanians12-coder/siva-builds/main/projects/screenshots/geneva-sales-pipeline.png",
+        "caption": "Geneva — Sales Pipeline"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/sivasubramanians12-coder/siva-builds/main/projects/screenshots/geneva-sales-pipeline-2.png",
+        "caption": "Geneva — Sales Pipeline — alt view"
+      }
     ]
   },
   {
@@ -146,6 +156,16 @@
         "value": "< 24h",
         "label": "CV to score turnaround",
         "delta": "from days"
+      }
+    ],
+    "screenshots": [
+      {
+        "url": "https://raw.githubusercontent.com/sivasubramanians12-coder/siva-builds/main/projects/screenshots/hd-hire-ai-ats.png",
+        "caption": "HD Hire — AI Applicant Tracking"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/sivasubramanians12-coder/siva-builds/main/projects/screenshots/hd-hire-ai-ats-2.png",
+        "caption": "HD Hire — AI Applicant Tracking — alt view"
       }
     ]
   },
@@ -374,6 +394,12 @@
         "value": "Mac Mini",
         "label": "Host"
       }
+    ],
+    "screenshots": [
+      {
+        "url": "https://raw.githubusercontent.com/sivasubramanians12-coder/siva-builds/main/projects/screenshots/personal-ai-os.png",
+        "caption": "Personal AI OS — 7-Agent Infrastructure"
+      }
     ]
   },
   {
@@ -448,6 +474,20 @@
       {
         "value": "Tailscale",
         "label": "Access"
+      }
+    ],
+    "screenshots": [
+      {
+        "url": "https://raw.githubusercontent.com/sivasubramanians12-coder/siva-builds/main/projects/screenshots/command-center-orchestration.png",
+        "caption": "Command Center — Dashboard"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/sivasubramanians12-coder/siva-builds/main/projects/screenshots/command-center-orchestrate.png",
+        "caption": "Command Center — Orchestrate / Runs"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/sivasubramanians12-coder/siva-builds/main/projects/screenshots/command-center-files.png",
+        "caption": "Command Center — Files"
       }
     ]
   },
@@ -536,6 +576,16 @@
         "label": "Role-based dashboards",
         "delta": "CX → Finance"
       }
+    ],
+    "screenshots": [
+      {
+        "url": "https://raw.githubusercontent.com/sivasubramanians12-coder/siva-builds/main/projects/screenshots/hillarys-ops-os.png",
+        "caption": "Hillary's Ops OS"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/sivasubramanians12-coder/siva-builds/main/projects/screenshots/hillarys-ops-os-2.png",
+        "caption": "Hillary's Ops OS — alt view"
+      }
     ]
   },
   {
@@ -607,6 +657,12 @@
         "value": "8",
         "label": "Bot commands",
         "delta": "/summary, /goals, /save, /undo..."
+      }
+    ],
+    "screenshots": [
+      {
+        "url": "https://raw.githubusercontent.com/sivasubramanians12-coder/siva-builds/main/projects/screenshots/walletbot-family-finance.png",
+        "caption": "WalletBot — Family Finance App"
       }
     ]
   },
@@ -692,6 +748,16 @@
         "label": "Customer alignment target",
         "delta": "before installation"
       }
+    ],
+    "screenshots": [
+      {
+        "url": "https://raw.githubusercontent.com/sivasubramanians12-coder/siva-builds/main/projects/screenshots/sitecapture-field-app.png",
+        "caption": "SiteCapture — Field Check Measure App"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/sivasubramanians12-coder/siva-builds/main/projects/screenshots/sitecapture-field-app-2.png",
+        "caption": "SiteCapture — Field Check Measure App — alt view"
+      }
     ]
   },
   {
@@ -774,6 +840,12 @@
         "value": "0",
         "label": "Connectivity required",
         "delta": "offline-first PWA"
+      }
+    ],
+    "screenshots": [
+      {
+        "url": "https://raw.githubusercontent.com/sivasubramanians12-coder/siva-builds/main/projects/screenshots/vayu-breathwork-app.png",
+        "caption": "Vayu — Breathwork Training App"
       }
     ]
   }
