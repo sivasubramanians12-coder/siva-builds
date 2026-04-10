@@ -1,51 +1,124 @@
 {
-  "lastUpdated": "2026-03-02",
-  "tagline": "A 3-agent system built to run a business and compound learning daily.",
+  "lastUpdated": "2026-04-10",
+  "tagline": "A 7-agent AI team running on a Mac Mini, with a full orchestration platform (Command Center) on top. Built to run a 120-person business and compound learning daily.",
   "agents": [
     {
       "name": "BarleyBot",
-      "role": "Orchestrator",
+      "role": "CEO / Orchestrator",
       "emoji": "\ud83d\udc3e",
-      "model": "Claude Sonnet 4.6",
+      "model": "Claude Opus 4.6",
       "bound_to": "Telegram DM",
-      "description": "Main agent. Handles daily ops, memory, coordination, and anything that doesn't need specialist depth. Named after Siva's dog Barley.",
+      "description": "The CEO of the agent team. Named after Siva's dog Barley. Handles intake, delegates to specialists, resolves conflicts, enforces the constitution, and reports up. Does not code or research directly — orchestrates those who do.",
       "capabilities": [
-        "Memory (3-layer)",
+        "3-layer memory (session / daily / MEMORY.md)",
         "Cron management",
-        "Research coordination",
-        "Site updates",
+        "Agent coordination + delegation",
+        "Site updates + git ops",
         "Voice transcription (Groq Whisper)"
       ]
     },
     {
       "name": "Coffee",
-      "role": "Research Agent",
+      "role": "VP Research",
       "emoji": "\u2615",
       "model": "Claude Sonnet 4.6",
       "bound_to": "Research Telegram group",
-      "description": "Deep research specialist. Bound to a dedicated Telegram group. Ask anything \u2014 web research, comparisons, summaries, market analysis.",
+      "description": "Deep research specialist. Runs competitive intel, market analysis, and synthesis before any build. Structured output saved to workspace/research/. Bound to a dedicated Telegram group for full research context.",
       "capabilities": [
-        "Web search",
-        "Multi-source synthesis",
-        "Deep research skill",
-        "Group-bound context"
+        "Multi-source web search (Tavily + Gemini)",
+        "Structured research synthesis",
+        "Competitive + market intel",
+        "Report writing"
       ]
     },
     {
       "name": "Coder",
-      "role": "Coding Agent",
-      "emoji": "\u2699\ufe0f",
-      "model": "Claude Opus 4.6",
-      "bound_to": "Standalone (spawned on demand)",
-      "description": "Heavy-lifting coding agent. Spawned for complex builds, refactors, and multi-file work. Uses the most capable model available.",
+      "role": "VP Engineering",
+      "emoji": "\ud83d\udcbb",
+      "model": "Claude Opus 4.6 (Sonnet 4.6 fallback)",
+      "bound_to": "Coder Telegram group",
+      "description": "Heavy-lifting coding agent. Ships features, refactors, fixes bugs, and runs git workflows. Operates from its own dedicated workspace so commits don't cross wires with the orchestrator.",
       "capabilities": [
-        "Full codebase exploration",
-        "Multi-file edits",
-        "Test writing",
-        "Git operations"
+        "Full codebase exploration + multi-file edits",
+        "Test writing + Playwright E2E",
+        "Git operations + PR flow",
+        "Framework-agnostic (Next.js, FastAPI, PWA)"
+      ]
+    },
+    {
+      "name": "Picasso",
+      "role": "VP Design",
+      "emoji": "\ud83c\udfa8",
+      "model": "Claude Opus 4.6",
+      "bound_to": "Design Telegram group",
+      "description": "UI / UX and design systems agent. Handles any visual work, UI reviews, brand consistency, and design tokens. Reads Figma exports, writes component specs, audits existing UI.",
+      "capabilities": [
+        "UI / UX review",
+        "Design system + tokens",
+        "Brand consistency audits",
+        "Component specs"
+      ]
+    },
+    {
+      "name": "TodoBot",
+      "role": "Chief of Staff",
+      "emoji": "\ud83d\udccb",
+      "model": "Claude Sonnet 4.6",
+      "bound_to": "Todo Telegram group",
+      "description": "Task tracker and scheduler. Owns active.md, maintains priorities, runs daily standups, and closes the loop on every task. Every status change flows through TodoBot.",
+      "capabilities": [
+        "Active task tracking",
+        "Daily / weekly reviews",
+        "Priority management",
+        "Cross-agent status reporting"
+      ]
+    },
+    {
+      "name": "MarketerBot",
+      "role": "VP Marketing",
+      "emoji": "\ud83d\udce2",
+      "model": "GPT-5.4 (thinking: high)",
+      "bound_to": "Marketing Telegram group",
+      "description": "Content and social media agent. Drafts LinkedIn posts, ship announcements, and blog briefs based on what was actually built. No hype, no generic AI commentary — business problems first.",
+      "capabilities": [
+        "LinkedIn post drafting",
+        "Ship announcement copy",
+        "Content calendar + blog briefs",
+        "Voice-consistent writing (VOICE.md)"
+      ]
+    },
+    {
+      "name": "HealthBot",
+      "role": "Personal Coach",
+      "emoji": "\ud83c\udfcb\ufe0f",
+      "model": "GPT-5.4 (thinking: high)",
+      "bound_to": "Private health Telegram group",
+      "description": "Personal health + performance coach. Tracks a 100-day program, reads Whoop data, interprets sleep and training load, and holds the operator accountable. Reports to Siva directly — not part of the BarleyBot delegation chain.",
+      "capabilities": [
+        "Whoop OAuth + data interpretation",
+        "Training + sleep analysis",
+        "Craving / accountability loop",
+        "Daily briefings"
       ]
     }
   ],
+  "command_center": {
+    "name": "Command Center",
+    "tagline": "The orchestration platform on top of the agent team.",
+    "url": "http://100.115.181.124:3001",
+    "stack": "Next.js 15 + SSE + LaunchAgent on Mac Mini",
+    "description": "A full web UI for running multi-agent pipelines. Blueprints like research-build, full-feature, new-project, bug-fix, marketing-campaign, design-review. Starts runs, routes review gates to Telegram, tracks cost per agent, shows live logs, files, projects + OKRs.",
+    "features": [
+      "6 blueprints (full-feature, research-build, bug-fix, marketing-campaign, design-review, new-project)",
+      "Cost intelligence per agent + demo mode",
+      "Projects + OKR framework with PROJECT.md parser",
+      "Files page with categories, markdown preview, Obsidian links",
+      "Guardrails + context chain + CrewAI-style patterns",
+      "Unified state endpoint with SSE streaming",
+      "115+ commits in March alone"
+    ],
+    "status": "Live — LaunchAgent on Mac Mini, Tailscale-accessible"
+  },
   "automations": [
     {
       "name": "Podcast Digest",
@@ -62,20 +135,38 @@
     {
       "name": "Daily Wrap + LinkedIn Drafts",
       "schedule": "10:30 PM IST daily",
-      "description": "Reads today's memory and GitHub commits. Writes a tech-led log entry to siva-builds. Drafts 2 LinkedIn posts. Triggers Vercel rebuild so this site updates automatically.",
+      "description": "Reads today's memory + GitHub events API across 7 repos. Writes a log entry to siva-builds. Drafts 2 LinkedIn posts. Triggers Vercel rebuild so this site updates automatically.",
       "output": "siva-builds commit + Vercel deploy + Telegram summary"
     },
     {
       "name": "Daily OpenClaw Idea",
       "schedule": "3:30 AM IST daily",
-      "description": "Generates one concrete OpenClaw automation idea based on current projects and context.",
+      "description": "Sends one concrete OpenClaw automation idea to the Ideas Telegram group. Rotates through a 98-idea master file.",
       "output": "Telegram message"
+    },
+    {
+      "name": "QMD Reindex",
+      "schedule": "3:00 AM IST daily",
+      "description": "Rebuilds the semantic search index across the entire workspace. Keeps BarleyBot's memory retrieval fresh.",
+      "output": "Updated vector index (Metal GPU, Apple M4)"
+    },
+    {
+      "name": "Curated Daily Digest",
+      "schedule": "Weekday + weekend deep dive",
+      "description": "Tavily + Gemini-powered curated news digest across business, AI, and operations. Fallback chain ensures delivery even on API limits.",
+      "output": "Telegram message"
+    },
+    {
+      "name": "HealthBot Morning Briefing",
+      "schedule": "6:30 AM IST daily",
+      "description": "Reads Whoop recovery, sleep, and HRV. Writes a daily briefing with training recommendation and yesterday's adherence.",
+      "output": "Telegram message to health group"
     }
   ],
   "memory": [
     {
       "layer": "Session context",
-      "description": "Active conversation memory. Ephemeral \u2014 lives only during the session.",
+      "description": "Active conversation memory. Ephemeral — lives only during the session.",
       "location": "In-context"
     },
     {
@@ -85,14 +176,19 @@
     },
     {
       "layer": "Long-term memory",
-      "description": "Curated and distilled. Updated during heartbeats. The stuff that matters across weeks and months.",
+      "description": "Curated and distilled. Updated during heartbeats and monthly memory decay. The stuff that matters across weeks and months.",
       "location": "MEMORY.md"
+    },
+    {
+      "layer": "Semantic index",
+      "description": "QMD-powered vector search over the entire workspace. Rebuilt nightly. Used by memory_search when recall matters.",
+      "location": "workspace/*.md (embedded via nomic-embed-text)"
     }
   ],
   "integrations": [
     {
       "name": "Telegram",
-      "use": "Primary interface \u2014 DM + research group + future coding group"
+      "use": "Primary interface — 7 dedicated bots, one per agent, each bound to its own group."
     },
     {
       "name": "GitHub",
@@ -101,6 +197,14 @@
     {
       "name": "Vercel",
       "use": "Auto-deploy this site on every siva-builds push via deploy hook."
+    },
+    {
+      "name": "Anthropic",
+      "use": "Claude Opus 4.6 + Sonnet 4.6 for most agents. Adaptive thinking enabled."
+    },
+    {
+      "name": "OpenAI Codex",
+      "use": "GPT-5.4 with thinking: high for MarketerBot, HealthBot, and Coder fallback."
     },
     {
       "name": "Groq Whisper",
@@ -112,7 +216,19 @@
     },
     {
       "name": "Tavily",
-      "use": "Deep web search in main BarleyBot session."
+      "use": "Deep web search in main BarleyBot session and Coffee research."
+    },
+    {
+      "name": "Turso",
+      "use": "libSQL database backing WalletBot and other data-heavy companions."
+    },
+    {
+      "name": "Supabase",
+      "use": "Shared Postgres for the Hillary's 3-app stack (InSite, SiteCapture, Ops OS)."
+    },
+    {
+      "name": "Whoop",
+      "use": "HealthBot pulls recovery, sleep, HRV, and strain via OAuth."
     }
   ],
   "skills": [
@@ -139,7 +255,22 @@
     {
       "name": "github",
       "agent": "BarleyBot",
-      "description": "GitHub operations \u2014 issues, PRs, CI, code review via gh CLI."
+      "description": "GitHub operations — issues, PRs, CI, code review via gh CLI."
+    },
+    {
+      "name": "internal-comms",
+      "agent": "MarketerBot",
+      "description": "Structured formats for internal updates, status reports, ship announcements."
+    },
+    {
+      "name": "orchestration-control",
+      "agent": "BarleyBot",
+      "description": "Drives the Command Center orchestration platform — start runs, approve / revise / kill review gates."
+    },
+    {
+      "name": "sprint-board",
+      "agent": "TodoBot",
+      "description": "Task board for cross-agent work tracking — add tasks, complete, manage sprints."
     }
   ],
   "companions": [
@@ -147,19 +278,10 @@
       "name": "WalletBot",
       "type": "Standalone Bot",
       "emoji": "\ud83d\udcb0",
-      "stack": "Telegraf.js + Next.js + Supabase",
+      "stack": "Telegraf.js + Next.js + Turso",
       "bound_to": "Family Telegram group",
-      "description": "Two-person family finance bot. Natural language expense logging \u2014 'Zomato 850' is all you need. Claude classifies to 13 buckets. Dashboard for trends and goals.",
-      "note": "Not an OpenClaw agent \u2014 independent Telegraf.js bot deployed on Vercel."
-    },
-    {
-      "name": "HealthBot",
-      "type": "Bound Agent",
-      "emoji": "\ud83d\udcaa",
-      "stack": "OpenClaw + Claude + Telegram",
-      "bound_to": "Private health Telegram group",
-      "description": "Personal health coach agent. Tracks a 100-day program \u2014 training adherence, sleep, Whoop data interpretation, craving accountability. Reads structured program and memory files. No health data stored in the public stack.",
-      "note": "OpenClaw agent bound to a private group. Persona: Coach \u2014 not BarleyBot."
+      "description": "Two-person family finance bot. Natural language expense logging — 'Zomato 850' is all you need. Claude classifies to 14 buckets. Dashboard for trends and goals (vacation, emergency fund, kids' education, new home).",
+      "note": "Not an OpenClaw agent — independent Telegraf.js bot. Handled via BarleyBot routing when the Finance group is active."
     }
   ]
 }

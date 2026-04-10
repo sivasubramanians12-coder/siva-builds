@@ -301,32 +301,35 @@
   },
   {
     "slug": "personal-ai-os",
-    "title": "Personal AI OS — Agent Infrastructure",
+    "title": "Personal AI OS — 7-Agent Infrastructure",
     "domain": "INFRA",
     "status": "In Progress",
     "date": "March 2026",
     "industry": "Personal Infrastructure / AI Systems",
-    "problem": "Running a 120-person business while building AI systems means context-switching constantly. Information gets lost between sessions. The same questions get answered again.",
-    "built": "3-agent system (orchestrator + research + coding). 3-layer memory architecture. Daily digests across 80+ sources. Deep research skill. Voice transcription via Groq Whisper.",
-    "outcome": "Active — compounds daily",
+    "problem": "Running a 120-person business while shipping software means context-switching constantly across operations, engineering, design, marketing, research, and health. Information gets lost between sessions. The same questions get answered again. And no single AI assistant can be a specialist at everything.",
+    "built": "7-agent AI team running on a Mac Mini: BarleyBot (CEO / orchestrator), Coffee (research), Coder (engineering), Picasso (design), TodoBot (chief of staff), MarketerBot (marketing), HealthBot (personal coach). Each bound to its own Telegram group. 4-layer memory architecture. 7 daily crons. Full constitution document and delegation protocol.",
+    "outcome": "Active — compounds daily. Runs 24/7 on a Mac Mini.",
     "stack": [
       "OpenClaw",
-      "Claude",
+      "Claude Opus 4.6",
+      "GPT-5.4",
       "Groq Whisper",
       "Gemini",
+      "Tavily",
       "Telegram",
-      "GitHub"
+      "GitHub",
+      "Mac Mini (LaunchAgent)"
     ],
-    "excerpt": "3-agent system with orchestrator, research, and coding agents. 3-layer memory architecture and daily digests across 80+ sources. Voice transcription via Groq Whisper.",
+    "excerpt": "7-agent AI team running 24/7 on a Mac Mini. BarleyBot orchestrates, Coffee researches, Coder builds, Picasso designs, TodoBot tracks, MarketerBot writes, HealthBot coaches. Each bound to a dedicated Telegram group. 4-layer memory + 7 daily crons. Governed by a constitution document.",
     "context": "At some point the question shifted from what should I build to what infrastructure do I need to build anything well. Each session with an AI assistant started from scratch — no memory of past decisions, no awareness of current projects, no context about what had already been tried.",
     "challenge": "Most AI assistant setups are stateless by default. Each conversation is isolated. The challenge was building persistent context without that becoming a maintenance burden in itself.",
     "approach": [
-      "Three agents with distinct roles: BarleyBot (orchestrator, memory, daily ops), Coffee (deep research), Coder (builds)",
-      "Each agent bound to a specific Telegram context — right agent, right conversation, no cross-contamination",
-      "Three-layer memory: active session context, daily logs (raw), long-term curated knowledge base",
-      "Daily cron infrastructure: podcast digest (81 feeds), RSS digest (13 feeds), daily wrap and LinkedIn draft at 10:30 PM IST",
-      "Groq Whisper for voice note transcription — send a voice message, get a text response",
-      "GitHub integration: agent reads all repos and surfaces daily commits in the nightly wrap"
+      "Seven agents with distinct roles — CEO, research, engineering, design, chief of staff, marketing, coach — each bound to a dedicated Telegram group so context never crosses wires",
+      "BarleyBot as the single orchestrator — intakes ideas from Siva, delegates with full context, unblocks stuck agents, enforces the constitution, reports up",
+      "Four-layer memory: session context, daily logs, curated MEMORY.md, and a QMD semantic index rebuilt nightly",
+      "Seven daily crons: podcast digest, RSS digest, curated daily digest, QMD reindex, HealthBot morning briefing, Ideas of the Day, Daily Wrap + LinkedIn drafts",
+      "Constitution document defining review gates, delegation protocol, conflict resolution, and quality standards across the agent team",
+      "Each agent runs as a separate OpenClaw session with its own workspace and its own bot token"
     ],
     "decisions": [
       {
@@ -347,31 +350,104 @@
       }
     ],
     "learnings": [
-      "Memory architecture is the most underrated part of agent systems. Without it, every session starts from zero.",
-      "Model tier matters for agents. Free-tier APIs rate-limit on the first call.",
-      "Specialist agents outperform general ones. Clear roles mean better performance and easier debugging.",
-      "The bottleneck shifts once infrastructure is solid. Building gets faster."
+      "Agents need dedicated Telegram groups. Running multiple agents through one DM creates context collisions and makes it impossible to ship in parallel.",
+      "BarleyBot delegates but never codes or researches directly. The moment the orchestrator starts doing specialist work, everything slows down.",
+      "Session files can bloat to thousands of lines and cause timeouts. Periodic truncation and fresh sessions are mandatory.",
+      "Claude Opus 4.6 is the right default for orchestration. GPT-5.4 with thinking: high is the right default for writing and coaching agents. Model choice matters.",
+      "A constitution document and explicit mission definitions per agent make delegation deterministic. Without it, agents drift.",
+      "Hot-reload config works for most settings but new sessions pick up thinking and fast mode cleanly — in-flight runs may need manual /think directives to update."
     ],
     "metrics": [
       {
-        "value": "3",
-        "label": "Specialist agents running",
-        "delta": "orchestrator + research + coding"
+        "value": "7",
+        "label": "AI agents running"
       },
       {
-        "value": "80+",
-        "label": "Sources in daily digest",
-        "delta": "podcasts and RSS feeds"
+        "value": "7",
+        "label": "Daily crons"
       },
       {
-        "value": "< 2s",
-        "label": "Voice note transcription",
-        "delta": "via Groq Whisper"
+        "value": "4",
+        "label": "Memory layers"
       },
       {
-        "value": "Day 1",
-        "label": "Context persistence",
-        "delta": "across all sessions"
+        "value": "Mac Mini",
+        "label": "Host"
+      }
+    ]
+  },
+  {
+    "slug": "command-center-orchestration",
+    "title": "Command Center — Multi-Agent Orchestration Platform",
+    "domain": "INFRA",
+    "status": "Live",
+    "date": "March 2026",
+    "industry": "Personal Infrastructure / AI Systems",
+    "problem": "Running a 7-agent AI team via chat messages works until pipelines get long. Multi-step work — research then build then review then ship then promote — needs coordination, review gates, cost tracking, and a way to see what is running across agents without scrolling through Telegram.",
+    "built": "A Next.js orchestration platform running as a LaunchAgent on the Mac Mini. Six blueprint pipelines (full-feature, research-build, bug-fix, marketing-campaign, design-review, new-project). SSE streaming for live run logs. Review gates routed to Telegram. Cost intelligence per agent. Projects + OKR framework. Files page with Obsidian links. Guardrails and context chain between phases.",
+    "outcome": "Live — 115+ commits in March, v4 shipped in 6 sprints. Tailscale-accessible from mobile. Drives every multi-phase build across the agent team.",
+    "stack": [
+      "Next.js 15",
+      "TypeScript",
+      "SSE",
+      "Tailwind",
+      "LaunchAgent",
+      "Tailscale",
+      "OpenClaw Gateway"
+    ],
+    "excerpt": "A web orchestration platform running on the Mac Mini. Six blueprints (full-feature, research-build, bug-fix, marketing-campaign, design-review, new-project). Review gates routed to Telegram. Cost intelligence, Projects + OKRs, files, guardrails. 115+ commits in March to v4.",
+    "context": "By late March the 7-agent team had proven it could run real work — sales pipeline builds, field apps, PWAs, a full DTC ops system. But coordinating multi-phase pipelines across agents was still manual: BarleyBot would delegate to Coffee for research, then Coder for build, then Picasso for UI review, then MarketerBot for promotion. Each handoff lived in Telegram messages. There was no single place to see what was running, what was waiting for approval, or what had cost how much.",
+    "challenge": "The challenge was building a control surface without recreating the orchestrator logic that BarleyBot already handled. Command Center had to drive runs, expose review gates cleanly, and get out of the way. It also had to survive restarts, run as a background service, and be reachable from anywhere via Tailscale — not a local-only dev tool.",
+    "approach": [
+      "Define blueprint pipelines as first-class objects — each blueprint declares phases, required agents, review gates, and expected outputs",
+      "Use Server-Sent Events for live run logs so the UI never polls and feels instantaneous",
+      "Route review gates through Telegram — the user approves, revises, or kills from the same chat interface where BarleyBot lives",
+      "Build a Files page with categories, markdown preview, and Obsidian deeplinks so outputs are browsable without leaving the UI",
+      "Track cost per agent per run with a Projects + OKR framework to tie runs back to goals",
+      "Ship as a LaunchAgent so it survives sleep and restarts — Tailscale handles remote access"
+    ],
+    "decisions": [
+      {
+        "decision": "SSE over WebSockets for live logs",
+        "rationale": "SSE is simpler, works through Tailscale and LaunchAgent without extra plumbing, and survives reconnection gracefully."
+      },
+      {
+        "decision": "Review gates in Telegram, not in the web UI",
+        "rationale": "Siva is already in Telegram all day. Routing review gates through the web UI would add friction and context-switching for no benefit."
+      },
+      {
+        "decision": "LaunchAgent instead of Docker",
+        "rationale": "The Mac Mini is the host. LaunchAgent is native, reliable, and zero-ops. Docker would add complexity without value for a single-user platform."
+      },
+      {
+        "decision": "Tailscale for remote access, not Cloudflare Tunnel",
+        "rationale": "Tailscale is already running for other services and provides the trust boundary Siva needs — no public exposure."
+      }
+    ],
+    "learnings": [
+      "Context preamble had to be rebuilt fresh on every restart — stale preamble was killing all build phases.",
+      "Piping prompts via stdin or file beats shell args — hit shell argument length limits early, now we stream big prompts in.",
+      "ANTHROPIC_API_KEY leaks from the OpenClaw gateway into spawned Claude Code processes broke every build phase until the fix landed.",
+      "Blueprint definitions should be short and essential — governance-v4 had too much prose and slowed down every phase until we truncated it.",
+      "Telegram review gates need three separate messages: header, output attachment, action prompt. One message tried to do everything and none of it worked.",
+      "A run that can not be killed from the same interface that started it is a run that will get abandoned."
+    ],
+    "metrics": [
+      {
+        "value": "115+",
+        "label": "Commits in March"
+      },
+      {
+        "value": "6",
+        "label": "Blueprint pipelines"
+      },
+      {
+        "value": "6",
+        "label": "Sprints to v4"
+      },
+      {
+        "value": "Tailscale",
+        "label": "Access"
       }
     ]
   },
